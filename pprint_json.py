@@ -15,7 +15,7 @@ def get_args():
     return args
 
 
-def load_data(filepath):
+def load_file(filepath):
     try:
         with open(filepath, 'r', encoding='utf-8') as open_file:
             return json.load(open_file)
@@ -23,13 +23,13 @@ def load_data(filepath):
         pass
 
 
-def pretty_print_json(data):
-    print(json.dumps(data, sort_keys=True, indent=4, ensure_ascii=False))
+def pretty_print_json(json_file):
+    print(json.dumps(json_file, sort_keys=True, indent=4, ensure_ascii=False))
 
 
 def _main():
     args = get_args()
-    json_file = load_data(args.file)
+    json_file = load_file(args.file)
     if json_file:
         pretty_print_json(json_file)
     else:
